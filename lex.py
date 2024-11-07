@@ -88,10 +88,10 @@ class ElgolLexer(Lexer):
         self.symbol_table.add_symbol(t.value, 'NUMBER', t.value)
         return t
 
-    # Comentário
+    # Ignora linhas que começam com #
     @_(r'#.*')
     def COMMENT(self, t):
-        pass  # Ignora comentários
+        pass   
     
     # Operadores aritméticos
     PLUS    = r'\+'
@@ -133,12 +133,12 @@ inicio.
         Resultado = _Soma (Lixo, Teste) .
 fim.
     '''
-    print("\n-------------- LISTA DE TOKENS: --------------\n")
+    print("\n---------------------- LISTA DE TOKENS: ----------------------\n")
     for tok in lexer.tokenize(data):
         print(tok)
-    print("\n-------------- FIM DA LISTA DE TOKENS: --------------\n")
+    print("\n---------------------- FIM DA LISTA DE TOKENS: ---------------\n")
 
     # Exibe a tabela de símbolos ao final
-    print("\n-------------- TABELA DE SÍMBOLOS: --------------\n")
+    print("\n---------------------- TABELA DE SÍMBOLOS: -------------------\n")
     print(lexer.symbol_table)
-    print("\n-------------- FIM DA TABELA DE SÍMBOLOS: --------------\n")
+    print("\n---------------------- FIM DA TABELA DE SÍMBOLOS: ------------\n")
